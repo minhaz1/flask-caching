@@ -477,9 +477,10 @@ Relevant configuration values
        # Can't configure the client yet...
        cache.init_app(flask_app, {"CACHE_TYPE": "memcached"})
 
-       # Break convention and set options on the _client object
+       # Break convention and set options on the object
        # directly. For pylibmc behaviors:
-       cache.cache._client.behaviors({"tcp_nodelay": True})
+       cache.cache._client.behaviors["tcp_nodelay"] = True
+
 
    Alternatively, see `Custom Cache Backends`_.
 
